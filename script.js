@@ -14,3 +14,26 @@ let courses = [
 let requiredRange1 = [null, 200];
 let requiredRange2 = [100, 350];
 let requiredRange3 = [200, null];
+
+
+const courseFilter=(min, max) => {
+
+        if (min === null) {
+            min = 0
+        }
+        
+        if (max === null) {
+            max = Infinity
+        }
+    
+    return courses.filter(i => {
+        if (i.prices[0] >= min && i.prices[0] < max && i.prices[1] <= max) {
+            console.log(i.prices)
+            return i;
+        }
+    })
+}
+
+courseFilter()
+
+// В задании я исходил из того, что диапазон prices: [null, null] является соответственно диапазоном [0, Infinity]
